@@ -1,0 +1,76 @@
+create java class implements basic operation on dynamic array the class should be able to handle typical array operation like insertion ,deletion updating ,retrieval elements
+//program
+import java.util.ArrayList;
+
+public class DynamicArrayOperations {
+    private ArrayList<Integer> dynamicArray;
+
+    // Constructor to initialize an empty dynamic array
+    public DynamicArrayOperations() {
+        dynamicArray = new ArrayList<>();
+    }
+
+    // Method to insert an element at a specific index
+    public void insert(int index, int element) {
+        dynamicArray.add(index, element);
+    }
+
+    // Method to append an element to the end of the array
+    public void append(int element) {
+        dynamicArray.add(element);
+    }
+
+    // Method to delete an element at a specific index
+    public void delete(int index) {
+        dynamicArray.remove(index);
+    }
+
+    // Method to update an element at a specific index
+    public void update(int index, int newElement) {
+        dynamicArray.set(index, newElement);
+    }
+
+    // Method to retrieve an element at a specific index
+    public int retrieve(int index) {
+        return dynamicArray.get(index);
+    }
+
+    // Method to get the size of the dynamic array
+    public int size() {
+        return dynamicArray.size();
+    }
+
+    // Method to print all elements in the dynamic array
+    public void print() {
+        System.out.print("Dynamic Array: ");
+        for (int i = 0; i < dynamicArray.size(); i++) {
+            System.out.print(dynamicArray.get(i) + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        DynamicArrayOperations array = new DynamicArrayOperations();
+
+        array.append(10);
+        array.append(20);
+        array.append(30);
+
+        array.print();  // Output: Dynamic Array: 10 20 30
+
+        array.insert(1, 15);
+
+        array.print();  // Output: Dynamic Array: 10 15 20 30
+
+        array.delete(2);
+
+        array.print();  // Output: Dynamic Array: 10 15 30
+
+        array.update(0, 5);
+
+        array.print();  // Output: Dynamic Array: 5 15 30
+
+        int element = array.retrieve(1);
+        System.out.println("Element at index 1: " + element);  // Output: Element at index 1: 15
+    }
+}
