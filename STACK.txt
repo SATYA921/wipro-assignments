@@ -1,0 +1,55 @@
+//STACK PROGRAM
+import java.util.*;
+
+class Stack {
+    private List<Integer> stack;
+
+    public Stack() {
+        stack = new ArrayList<>();
+    }
+
+    // Push element onto the stack
+    public void push(int element) {
+        stack.add(element);
+    }
+
+    // Pop element from the stack
+    public int pop() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack.remove(stack.size() - 1);
+    }
+
+    // Peek the top element of the stack
+    public int peek() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack.get(stack.size() - 1);
+    }
+
+    // Check if the stack is empty
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+
+        // Pushing elements onto the stack
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        // Popping elements from the stack
+        System.out.println("Popped element: " + stack.pop());
+        System.out.println("Popped element: " + stack.pop());
+
+        // Peeking at the top element of the stack
+        System.out.println("Top element: " + stack.peek());
+
+        // Checking if the stack is empty
+        System.out.println("Is stack empty? " + stack.isEmpty());
+    }
+}
